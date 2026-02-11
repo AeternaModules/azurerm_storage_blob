@@ -28,11 +28,11 @@ EOT
     access_tier            = optional(string)
     cache_control          = optional(string)
     content_md5            = optional(string)
-    content_type           = optional(string, "application/octet-stream")
+    content_type           = optional(string) # Default: "application/octet-stream"
     encryption_scope       = optional(string)
     metadata               = optional(map(string))
-    parallelism            = optional(number, 8)
-    size                   = optional(number, 0)
+    parallelism            = optional(number) # Default: 8
+    size                   = optional(number) # Default: 0
     source                 = optional(string)
     source_content         = optional(string)
     source_uri             = optional(string)
