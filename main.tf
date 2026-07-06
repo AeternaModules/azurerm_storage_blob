@@ -2,8 +2,6 @@ resource "azurerm_storage_blob" "storage_blobs" {
   for_each = var.storage_blobs
 
   name                   = each.value.name
-  storage_account_name   = each.value.storage_account_name
-  storage_container_name = each.value.storage_container_name
   type                   = each.value.type
   access_tier            = each.value.access_tier
   cache_control          = each.value.cache_control
@@ -16,5 +14,8 @@ resource "azurerm_storage_blob" "storage_blobs" {
   source                 = each.value.source
   source_content         = each.value.source_content
   source_uri             = each.value.source_uri
+  storage_account_name   = each.value.storage_account_name
+  storage_container_id   = each.value.storage_container_id
+  storage_container_name = each.value.storage_container_name
 }
 
