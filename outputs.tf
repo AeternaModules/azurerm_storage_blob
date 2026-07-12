@@ -1,3 +1,7 @@
+output "storage_blobs_id" {
+  description = "Map of id values across all storage_blobs, keyed the same as var.storage_blobs"
+  value       = { for k, v in azurerm_storage_blob.storage_blobs : k => v.id }
+}
 output "storage_blobs_access_tier" {
   description = "Map of access_tier values across all storage_blobs, keyed the same as var.storage_blobs"
   value       = { for k, v in azurerm_storage_blob.storage_blobs : k => v.access_tier }
