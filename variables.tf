@@ -3,6 +3,7 @@ variable "storage_blobs" {
 Map of storage_blobs, attributes below
 Required:
     - name
+    - storage_container_id
     - type
 Optional:
     - access_tier
@@ -16,28 +17,23 @@ Optional:
     - source
     - source_content
     - source_uri
-    - storage_account_name
-    - storage_container_id
-    - storage_container_name
 EOT
 
   type = map(object({
-    name                   = string
-    type                   = string
-    access_tier            = optional(string)
-    cache_control          = optional(string)
-    content_md5            = optional(string)
-    content_type           = optional(string)
-    encryption_scope       = optional(string)
-    metadata               = optional(map(string))
-    parallelism            = optional(number)
-    size                   = optional(number)
-    source                 = optional(string)
-    source_content         = optional(string)
-    source_uri             = optional(string)
-    storage_account_name   = optional(string)
-    storage_container_id   = optional(string)
-    storage_container_name = optional(string)
+    name                 = string
+    storage_container_id = string
+    type                 = string
+    access_tier          = optional(string)
+    cache_control        = optional(string)
+    content_md5          = optional(string)
+    content_type         = optional(string)
+    encryption_scope     = optional(string)
+    metadata             = optional(map(string))
+    parallelism          = optional(number)
+    size                 = optional(number)
+    source               = optional(string)
+    source_content       = optional(string)
+    source_uri           = optional(string)
   }))
   validation {
     condition = alltrue([

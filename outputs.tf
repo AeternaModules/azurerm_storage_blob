@@ -50,17 +50,9 @@ output "storage_blobs_source_uri" {
   description = "Map of source_uri values across all storage_blobs, keyed the same as var.storage_blobs"
   value       = { for k, v in azurerm_storage_blob.storage_blobs : k => v.source_uri if v.source_uri != null && length(v.source_uri) > 0 }
 }
-output "storage_blobs_storage_account_name" {
-  description = "Map of storage_account_name values across all storage_blobs, keyed the same as var.storage_blobs"
-  value       = { for k, v in azurerm_storage_blob.storage_blobs : k => v.storage_account_name if v.storage_account_name != null && length(v.storage_account_name) > 0 }
-}
 output "storage_blobs_storage_container_id" {
   description = "Map of storage_container_id values across all storage_blobs, keyed the same as var.storage_blobs"
   value       = { for k, v in azurerm_storage_blob.storage_blobs : k => v.storage_container_id if v.storage_container_id != null && length(v.storage_container_id) > 0 }
-}
-output "storage_blobs_storage_container_name" {
-  description = "Map of storage_container_name values across all storage_blobs, keyed the same as var.storage_blobs"
-  value       = { for k, v in azurerm_storage_blob.storage_blobs : k => v.storage_container_name if v.storage_container_name != null && length(v.storage_container_name) > 0 }
 }
 output "storage_blobs_type" {
   description = "Map of type values across all storage_blobs, keyed the same as var.storage_blobs"
